@@ -3,7 +3,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<style type="text/css">
+	input {
+	  display:grid;
+	  place:items:center;
+	}
+	button {
+		background-color: #e7e7e7;
+		color: black;
+	}
+	</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
 <body>
@@ -16,5 +26,6 @@
 			<input type="text" name="motdepasse">
 		</fieldset>
 	</form>
+	<button onclick="window.location.href = 'https://fr.w3docs.com/';">Connexion</button>
 </body>
 </html>
