@@ -27,8 +27,7 @@ public class LoginControleur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Hello World par le Servlet depuis le navigateur (pour créer du HTML)");
-		request.getRequestDispatcher("/loginControleur").forward(request, response);
+		request.getRequestDispatcher("/loginVue.jsp").forward(request, response);
 
 	}
 
