@@ -99,4 +99,43 @@ public class ClientDAOModele {
 		}
 		return clientListe;
 	}
+	
+	public  ClientBeanModele lire(int id)
+	{
+		ConnexionBDDModele connexionBDDModele = new ConnexionBDDModele();
+		Connection connexion = connexionBDDModele.getConnexion();
+
+		ClientBeanModele client = new ClientBeanModele();
+		try
+		{
+			String requete = new String("SELECT id, nom, societe, adresse, code_postal, telephone, reduc FROM client WHERE id = ?;");
+			PreparedStatement statement = connexion.prepareStatement(requete);
+
+			statement.setInt(1, id);
+			ResultSet rs = statement.executeQuery();
+
+			if ( rs.next() )
+			{
+				client = new ClientBeanModele();
+				client.setId(id);
+				client.setNom(rs.getString("nom"));
+				client.setSociete(rs.getString("societe"));
+				client.setAdresse(rs.getString("adresse"));
+				client.setCode_postal(rs.getInt("code_postal"));
+				client.setTelephone(rs.getInt("telephone"));
+				client.setReduc(rs.getDouble("reduc"));
+			}
+		}
+		catch (SQLException ex3)
+		{
+			while (ex3 != null)
+			{
+				System.out.println(ex3.getSQLState());
+				System.out.println(ex3.getMessage());
+				System.out.println(ex3.getErrorCode());
+				ex3=ex3.getNextException();
+			}
+		}
+		return client;
+	}
 }

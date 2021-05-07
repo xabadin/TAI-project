@@ -2,7 +2,7 @@
 public class ProduitBeanModele {
 	private int id;
 	private String designation;
-	private int prix;
+	private double prix;
 	
 	public ProduitBeanModele()
 	{
@@ -15,10 +15,10 @@ public class ProduitBeanModele {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getPrix() {
+	public double getPrix() {
 		return prix;
 	}
-	public void setPrix(int prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 

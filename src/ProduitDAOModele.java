@@ -24,7 +24,7 @@ public class ProduitDAOModele {
 					Statement.RETURN_GENERATED_KEYS);
 
 			statement.setString(1, produit.getDesignation());
-			statement.setInt(2, produit.getPrix());
+			statement.setDouble(2, produit.getPrix());
 
 			statement.executeUpdate();
 			ResultSet rs = statement.getGeneratedKeys();
@@ -72,7 +72,7 @@ public class ProduitDAOModele {
 				ProduitBeanModele produit = new ProduitBeanModele();
 				produit.setId(rs.getInt("id"));
 				produit.setDesignation(rs.getString("designation"));
-				produit.setPrix(new Integer(rs.getString("prix")));
+				produit.setPrix(rs.getDouble("prix"));
 
 				produitListe.add(produit);
 			}
