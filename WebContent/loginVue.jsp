@@ -26,8 +26,10 @@
 			<input type="text" name="motdepasse">
 		</fieldset>
 	</form>
-	<button onclick="window.location.href = 'https://fr.w3docs.com/';">Connexion</button>
+	<button onclick="window.location.href = 'https://fr.w3docs.com/';">Connexion</button> <br />
 	
-	<a href="RechercheArticleControleur">Montrer les données d'un produit</a>
+	<a href="RechercheArticleControleur">Montrer les données d'un produit</a> <br />
+	<a href="EnregistrerClientControleur">Créer un new client</a> <br />
+	<a href="EnregistrerReductionControleur">Créer une nouvelle reduction</a> <br />
 </body>
 </html>

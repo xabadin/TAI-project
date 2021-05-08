@@ -21,11 +21,11 @@
 		<input type="submit" />
 		
 		<fieldset>
-			<ul>
-				<li><c:out value="${produit.id}" /></li>
-				<li><c:out value="${produit.designation}" /></li>
-				<li><c:out value="${produit.prix}" /></li>
-			</ul>
+			
+				Id : <c:out value="${produit.id}" /> <br>
+				Designation : <c:out value="${produit.designation}" /><br>
+				Prix (en euro) : <c:out value="${produit.prix}" /><br>
+			
 		</fieldset>
 		
 	</form>
