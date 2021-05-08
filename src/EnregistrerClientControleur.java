@@ -62,18 +62,14 @@ public class EnregistrerClientControleur extends HttpServlet {
 			client.setTelephone(Integer.parseInt(telephone));
 			client.setReduc(Double.parseDouble(reduc));
 			clientDAOModele.creer(client);
+			
 			request.setAttribute("client", client);
 			
 			request.setAttribute("validation", validation);
 			
 			request.getRequestDispatcher("/enregistrerClientVue.jsp").forward(request, response);
 		}
-		
-		
-		//clientDAOModele.creer(client);
-		//request.setAttribute("client", client);
-		
-		//request.getRequestDispatcher("/enregistrerClientVue.jsp").forward(request, response);
+
 	}
 
 }

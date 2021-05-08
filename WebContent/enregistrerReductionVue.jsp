@@ -10,7 +10,7 @@
 <body>
 	<h1>Définir une réduction en fonction de la quantité</h1>
 	
-	<form action="RechercheArticleControleur" method="post">
+	<form action="EnregistrerReductionControleur" method="post">
 		<fieldset>
 		Nom du produit : <select name="designation">
 			<c:forEach items="${produitListe}" var="produit">
@@ -18,7 +18,7 @@
 			</c:forEach>
 		</select>
 		</fieldset>
-	</form>
+	
 		<fieldset>
 	 		<table class='tableau'>
 	   			<tr>
@@ -27,32 +27,34 @@
 	    			<th>Réduction (en %)</th>
 	   			</tr>
 				<tr>
-	    			<td><input type='text' name='1'/></td>
-	    			<td><input type='text' name='2'/></td>
-	    			<td><input type='text' name='3'/></td>
+	    			<td><input type='text' name='min1'/></td>
+	    			<td><input type='text' name='max1'/></td>
+	    			<td><input type='text' name='reduc1'/></td>
 	  			</tr>
 	  			<tr>
-	    			<td><input type='text' name='4'/></td>
-	    			<td><input type='text' name='5'/></td>
-	    			<td><input type='text' name='6'/></td>
+	    			<td><input type='text' name='min2'/></td>
+	    			<td><input type='text' name='max2'/></td>
+	    			<td><input type='text' name='reduc2'/></td>
 	  			</tr>
 	  			<tr>
-	    			<td><input type='text' name='7'/></td>
-	    			<td><input type='text' name='8'/></td>
-	    			<td><input type='text' name='9'/></td>
+	    			<td><input type='text' name='min3'/></td>
+	    			<td><input type='text' name='max3'/></td>
+	    			<td><input type='text' name='reduc3'/></td>
 	  			</tr>
 	  			<tr>
-	    			<td><input type='text' name='10'/></td>
-	    			<td><input type='text' name='11'/></td>
-	    			<td><input type='text' name='12'/></td>
+	    			<td><input type='text' name='min4'/></td>
+	    			<td><input type='text' name='max4'/></td>
+	    			<td><input type='text' name='reduc4'/></td>
 	  			</tr>
 	  			<tr>
-	    			<td><input type='text' name='13'/></td>
-	    			<td><input type='text' name='14'/></td>
-	    			<td><input type='text' name='15'/></td>
+	    			<td><input type='text' name='min5'/></td>
+	    			<td><input type='text' name='max5'/></td>
+	    			<td><input type='text' name='reduc5'/></td>
 	  			</tr>
 			</table>
 		</fieldset>
-	<input type="submit" />
+		<input type="submit" />
+	</form>
+	<c:out value="${validation}" /> <br>
 </body>
 </html>
