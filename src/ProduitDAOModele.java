@@ -93,4 +93,40 @@ public class ProduitDAOModele {
 		}
 		return produitListe;
 	}
+	
+	public  ProduitBeanModele lire(int id)
+	{
+		ConnexionBDDModele connexionBDDModele = new ConnexionBDDModele();
+		Connection connexion = connexionBDDModele.getConnexion();
+
+		ProduitBeanModele produit = new ProduitBeanModele();
+		
+		try
+		{
+			String requete = new String("SELECT id, designatio, prix FROM commande WHERE id = ?;");
+			PreparedStatement statement = connexion.prepareStatement(requete);
+
+			statement.setInt(1, id);
+			ResultSet rs = statement.executeQuery();
+
+			if ( rs.next() )
+			{
+				produit = new ProduitBeanModele();
+				produit.setId(id);
+				produit.setDesignation(rs.getString("designation"));
+				produit.setPrix(rs.getDouble("prix"));
+			}
+		}
+		catch (SQLException ex3)
+		{
+			while (ex3 != null)
+			{
+				System.out.println(ex3.getSQLState());
+				System.out.println(ex3.getMessage());
+				System.out.println(ex3.getErrorCode());
+				ex3=ex3.getNextException();
+			}
+		}
+		return produit;
+	}
 }

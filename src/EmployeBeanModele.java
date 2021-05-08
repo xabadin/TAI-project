@@ -7,7 +7,7 @@ public class EmployeBeanModele {
 	private String mdp;
 	private String nom;
 	private String prenom;
-	//private ServiceBeanModele ; 
+	private ServiceBeanModele service; 
 	private LocalDateTime datecreation;
 	public int getId() {
 		return id;
@@ -50,6 +50,12 @@ public class EmployeBeanModele {
 		 // pour date , sans l’heure , ce serait
 		 // DateTimeFormatter formatter = DateTimeFormatter . ofPattern (" dd MM yyyy ’a’ HH:mm ");
 		 return this.datecreation.format(formatter);
+	}
+	public ServiceBeanModele getService() {
+		return service;
+	}
+	public void setService(ServiceBeanModele service) {
+		this.service = service;
 	}
 
 }

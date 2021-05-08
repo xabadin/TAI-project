@@ -98,4 +98,45 @@ public class CommandeDAOModele {
 		}
 		return commandeListe;
 	}
+	
+	public  CommandeBeanModele lire(int id)
+	{
+		ConnexionBDDModele connexionBDDModele = new ConnexionBDDModele();
+		Connection connexion = connexionBDDModele.getConnexion();
+
+		CommandeBeanModele commande = new CommandeBeanModele();
+		
+		EmployeDAOModele employeDAOModele = new EmployeDAOModele();
+		ClientDAOModele clientDAOModele = new ClientDAOModele();
+		
+		try
+		{
+			String requete = new String("SELECT id, id_client, prix_total, prix_reduction, id_employe reduc FROM commande WHERE id = ?;");
+			PreparedStatement statement = connexion.prepareStatement(requete);
+
+			statement.setInt(1, id);
+			ResultSet rs = statement.executeQuery();
+
+			if ( rs.next() )
+			{
+				commande = new CommandeBeanModele();
+				commande.setId(id);
+				commande.setClient(clientDAOModele.lire(rs.getInt("id_client")));
+				commande.setPrix_total(rs.getInt("prix_total"));
+				commande.setPrix_reduction(rs.getInt("prix_reduction"));
+				commande.setEmploye(employeDAOModele.lire(rs.getInt("id_employe")));
+			}
+		}
+		catch (SQLException ex3)
+		{
+			while (ex3 != null)
+			{
+				System.out.println(ex3.getSQLState());
+				System.out.println(ex3.getMessage());
+				System.out.println(ex3.getErrorCode());
+				ex3=ex3.getNextException();
+			}
+		}
+		return commande;
+	}
 }
