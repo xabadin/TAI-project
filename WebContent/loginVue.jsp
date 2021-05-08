@@ -27,5 +27,7 @@
 		</fieldset>
 	</form>
 	<button onclick="window.location.href = 'https://fr.w3docs.com/';">Connexion</button>
+	
+	<a href="RechercheArticleControleur">Montrer les données d'un produit</a>
 </body>
 </html>
