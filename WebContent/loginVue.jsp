@@ -31,5 +31,6 @@
 	<a href="RechercheArticleControleur">Montrer les données d'un produit</a> <br />
 	<a href="EnregistrerClientControleur">Créer un new client</a> <br />
 	<a href="EnregistrerReductionControleur">Créer une nouvelle reduction</a> <br />
+	<a href="EnregistrerVenteControleur">Créer une nouvelle commande</a> <br />
 </body>
 </html>
