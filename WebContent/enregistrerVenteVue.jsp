@@ -50,8 +50,11 @@
 							</c:forEach>
 						</select>
 					</td>
-	    			<td><input type='text' name='max1'/></td>
+					<td><input type='text' name='prix1'/></td>
+	    			<td><input type='text' name='quantite1'/></td>
+	    			<td><input type='text' name='prixTot1'/></td>
 	    			<td><input type='text' name='reduc1'/></td>
+	    			<td><input type='text' name='prixReduc1'/></td>
 	  			</tr>
 	  			<tr>
 	    			<td>
@@ -61,8 +64,11 @@
 							</c:forEach>
 						</select>
 					</td>
-	    			<td><input type='text' name='max2'/></td>
+					<td><input type='text' name='prix2'/></td>
+	    			<td><input type='text' name='quantite2'/></td>
+	    			<td><input type='text' name='prixTot2'/></td>
 	    			<td><input type='text' name='reduc2'/></td>
+	    			<td><input type='text' name='prixReduc2'/></td>
 	  			</tr>
 	  			<tr>
 	    			<td>
@@ -72,8 +78,11 @@
 							</c:forEach>
 						</select>
 					</td>
-	    			<td><input type='text' name='max3'/></td>
+					<td><input type='text' name='prix3'/></td>
+	    			<td><input type='text' name='quantite3'/></td>
+	    			<td><input type='text' name='prixTot3'/></td>
 	    			<td><input type='text' name='reduc3'/></td>
+	    			<td><input type='text' name='prixReduc3'/></td>
 	  			</tr>
 	  			<tr>
 	    			<td>
@@ -83,8 +92,11 @@
 							</c:forEach>
 						</select>
 					</td>
-	    			<td><input type='text' name='max4'/></td>
+					<td><input type='text' name='prix4'/></td>
+	    			<td><input type='text' name='quantite4'/></td>
+	    			<td><input type='text' name='prixTot4'/></td>
 	    			<td><input type='text' name='reduc4'/></td>
+	    			<td><input type='text' name='prixReduc4'/></td>
 	  			</tr>
 	  			<tr>
 	    			<td>
@@ -94,8 +106,11 @@
 							</c:forEach>
 						</select>
 					</td>
-	    			<td><input type='text' name='max5'/></td>
+					<td><input type='text' name='prix5'/></td>
+	    			<td><input type='text' name='quantite5'/></td>
+	    			<td><input type='text' name='prixTot5'/></td>
 	    			<td><input type='text' name='reduc5'/></td>
+	    			<td><input type='text' name='prixReduc5'/></td>
 	  			</tr>
 			</table>
 			
