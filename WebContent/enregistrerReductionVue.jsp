@@ -4,11 +4,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<style>
+    p { 
+	font-size: 200%;
+	text-align: left;
+	margin-top: 10px;
+	font-family: Calibri, Helvetica, sans-serif
+	 }
+	 th {	font-size: 100%;
+	font-family: Calibri, Helvetica, sans-serif
+	}
+	fieldset {	font-size: 100%;
+	font-family: Calibri, Helvetica, sans-serif
+	}
+  </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Enregistrer une reduction</title>
 </head>
 <body>
-	<h1>Définir une réduction en fonction de la quantité</h1>
+	<p>Définir une réduction en fonction de la quantité</p>
 	
 	<form action="EnregistrerReductionControleur" method="post">
 		<fieldset>

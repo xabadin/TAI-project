@@ -6,9 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Enregistrer une nouvelle vente</title>
+<style>
+    p { 
+	font-size: 200%;
+	text-align: left;
+	margin-top: 10px;
+	font-family: Calibri, Helvetica, sans-serif
+	 }
+	 th {	font-size: 100%;
+	font-family: Calibri, Helvetica, sans-serif
+	}
+	fieldset {	font-size: 100%;
+	font-family: Calibri, Helvetica, sans-serif
+	}
+  </style>
 </head>
 <body>
-	<h1>Renseigner une nouvelle commande</h1>
+	<p>Renseigner une nouvelle commande</p>
 	
 	<form action="EnregistrerVenteControleur" method="post">
 		<fieldset>
