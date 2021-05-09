@@ -30,78 +30,83 @@
 	   			</tr>
 				<tr>
 	    			<td>
-	    				<select name="produit">
+	    				<select name="designation1">
 							<c:forEach items="${produitListe}" var="produit">
 								<option><c:out value="${produit.designation}"/></option>
 							</c:forEach>
 						</select>
 					</td>
-					<td><input type='text' name='prix1'/></td>
-	    			<td><input type='text' name='quantite1'/></td>
-	    			<td><input type='text' name='prixTot1'/></td>
-	    			<td><input type='text' name='reduc1'/></td>
-	    			<td><input type='text' name='prixReduc1'/></td>
+					<td><c:out value="${prix1}" /></td>
+	    			<td><input type='number' name='quantite1'/></td>
+	    			<td><c:out value="${prixTot1}" /></td>
+	    			<td><c:out value="${reducProduit1}" /></td>
+	    			<td><c:out value="${prixReduc1}" /></td>
 	  			</tr>
 	  			<tr>
 	    			<td>
-	    				<select name="produit">
+	    				<select name="designation2">
 							<c:forEach items="${produitListe}" var="produit">
 								<option><c:out value="${produit.designation}"/></option>
 							</c:forEach>
 						</select>
 					</td>
-					<td><input type='text' name='prix2'/></td>
-	    			<td><input type='text' name='quantite2'/></td>
-	    			<td><input type='text' name='prixTot2'/></td>
-	    			<td><input type='text' name='reduc2'/></td>
-	    			<td><input type='text' name='prixReduc2'/></td>
+					<td><c:out value="${prix2}" /></td>
+	    			<td><input type='number' name='quantite2'/></td>
+	    			<td><c:out value="${prixTot2}" /></td>
+	    			<td><c:out value="${reduc2}" /></td>
+	    			<td><c:out value="${prixReduc2}" /></td>
 	  			</tr>
 	  			<tr>
 	    			<td>
-	    				<select name="produit">
+	    				<select name="designation3">
 							<c:forEach items="${produitListe}" var="produit">
 								<option><c:out value="${produit.designation}"/></option>
 							</c:forEach>
 						</select>
 					</td>
-					<td><input type='text' name='prix3'/></td>
-	    			<td><input type='text' name='quantite3'/></td>
-	    			<td><input type='text' name='prixTot3'/></td>
-	    			<td><input type='text' name='reduc3'/></td>
-	    			<td><input type='text' name='prixReduc3'/></td>
+					<td><c:out value="${prix3}" /></td>
+	    			<td><input type='number' name='quantite3'/></td>
+	    			<td><c:out value="${prixTot3}" /></td>
+	    			<td><c:out value="${reduc3}" /></td>
+	    			<td><c:out value="${prixReduc3}" /></td>
 	  			</tr>
 	  			<tr>
 	    			<td>
-	    				<select name="produit">
+	    				<select name="designation4">
 							<c:forEach items="${produitListe}" var="produit">
 								<option><c:out value="${produit.designation}"/></option>
 							</c:forEach>
 						</select>
 					</td>
-					<td><input type='text' name='prix4'/></td>
-	    			<td><input type='text' name='quantite4'/></td>
-	    			<td><input type='text' name='prixTot4'/></td>
-	    			<td><input type='text' name='reduc4'/></td>
-	    			<td><input type='text' name='prixReduc4'/></td>
+					<td><c:out value="${prix4}" /></td>
+	    			<td><input type='number' name='quantite4'/></td>
+	    			<td><c:out value="${prixTot4}" /></td>
+	    			<td><c:out value="${reduc4}" /></td>
+	    			<td><c:out value="${prixReduc4}" /></td>
 	  			</tr>
 	  			<tr>
 	    			<td>
-	    				<select name="produit">
+	    				<select name="designation5">
 							<c:forEach items="${produitListe}" var="produit">
 								<option><c:out value="${produit.designation}"/></option>
 							</c:forEach>
 						</select>
 					</td>
-					<td><input type='text' name='prix5'/></td>
-	    			<td><input type='text' name='quantite5'/></td>
-	    			<td><input type='text' name='prixTot5'/></td>
-	    			<td><input type='text' name='reduc5'/></td>
-	    			<td><input type='text' name='prixReduc5'/></td>
+					<td><c:out value="${prix5}" /></td>
+	    			<td><input type='number' name='quantite5'/></td>
+	    			<td><c:out value="${prixTot5}" /></td>
+	    			<td><c:out value="${reduc5}" /></td>
+	    			<td><c:out value="${prixReduc5}" /></td>
 	  			</tr>
 			</table>
 			
+			Prix total de la commande sans remise : <c:out value="${prixCommande}" /> <br>
+			Prix total de la commande avec remise : <c:out value="${prixCommandeReduc}" /> <br>
 		</fieldset>
-		<input type="submit" />	
+		<input type="submit" value="Valider"/>	
+		<input type="submit" value="Créer commande"/>	
+		
+		<c:out value="${validation}" />
 	</form>
 </body>
 </html>

@@ -1,8 +1,5 @@
-
-
 import java.io.IOException;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,23 +49,173 @@ public class EnregistrerVenteControleur extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String nom = request.getParameter("nom");
+		ProduitDAOModele produitDAOModele = new ProduitDAOModele();
+		List<ProduitBeanModele> produitListe = produitDAOModele.lireListe();
 		
 		ClientDAOModele clientDAOModele = new ClientDAOModele();
-		ClientBeanModele client = new ClientBeanModele();
 		List<ClientBeanModele> clientListe = clientDAOModele.lireListe();
+		
+		CommandeDAOModele commandeDAOModele = new CommandeDAOModele();
+		List<CommandeBeanModele> commandeListe = commandeDAOModele.lireListe();
+		
+		ReductionDAOModele reductionDAOModele = new ReductionDAOModele();
+		List<ReductionBeanModele> reductionListe = reductionDAOModele.lireListe();
+		
+		String numCommande = Integer.toString(commandeListe.size() + 1);
+		
+		request.setAttribute("produitListe", produitListe);
+		request.setAttribute("numCommande", numCommande);
+		request.setAttribute("clientListe", clientListe);
+		
+		String nom = request.getParameter("nom");
+		
+		double reducClient = 0;
 		
 		for(int i = 0; i < clientListe.size(); i++)
 		{
 			if(clientListe.get(i).getNom().equals(nom))
 			{
-				client.setId(clientListe.get(i).getId());
+				reducClient = clientListe.get(i).getReduc();
 			}
 		}
-		
-		ProduitDAOModele produitDAOModele = new ProduitDAOModele();
-		//ProduitBeanModele produit = new ProduitBeanModele();
-		//List<ProduitBeanModele> produitListe = produitDAOModele.lireListe();
+
+		if(request.getParameter("quantite1") == "")
+		{
+			String validation = "Veuillez remplir la première ligne de la colonne quantité.";
+			request.setAttribute("validation", validation);
+		}
+		else {
+			String quantite1 = request.getParameter("quantite1");
+			String designation1 = request.getParameter("designation1");
+			double prixTot1 = 0;
+			double prix1 = 0;
+			int id_produit = 0;
+			double reducProduit1 = 0;
+			double prixReduc1 = 0;
+			for(int i = 0; i < produitListe.size(); i++)
+			{
+				if(produitListe.get(i).getDesignation().equals(designation1))
+				{
+					prix1 = produitListe.get(i).getPrix();
+					request.setAttribute("prix1", prix1);
+					prixTot1 = prix1 * Double.parseDouble(quantite1);
+					request.setAttribute("prixTot1", prixTot1);
+					id_produit = produitListe.get(i).getId();
+				}
+			}
+			for(int i = 0; i < reductionListe.size(); i++)
+			{
+				if(reductionListe.get(i).getProduit().getId() == id_produit)
+				{
+					if(reductionListe.get(i).getMin() <= Integer.parseInt(quantite1) && Integer.parseInt(quantite1) <= reductionListe.get(i).getMax())
+					{
+						reducProduit1 = reductionListe.get(i).getReduc();
+						request.setAttribute("reducProduit1", reducProduit1);
+						prixReduc1 = prixTot1 - reducProduit1 * prixTot1;
+						request.setAttribute("prixReduc1", prixReduc1);
+					}else
+					{
+						request.setAttribute("reducProduit1", reducProduit1);
+						prixReduc1 = prixTot1;
+						request.setAttribute("prixReduc1", prixReduc1);
+					}
+				}else
+				{
+					request.setAttribute("reducProduit1", reducProduit1);
+					prixReduc1 = prixTot1;
+					request.setAttribute("prixReduc1", prixReduc1);
+				}
+			}
+			
+			if(request.getParameter("quantite2") != "")
+			{
+				String quantite2 = request.getParameter("quantite2");
+				String designation2 = request.getParameter("designation2");
+				double prixTot2 = 0;
+				double prix2 = 0;
+				int id_produit2 = 0;
+				double reducProduit2 = 0;
+				double prixReduc2 = 0;
+				for(int i = 0; i < produitListe.size(); i++)
+				{
+					if(produitListe.get(i).getDesignation().equals(designation2))
+					{
+						prix2 = produitListe.get(i).getPrix();
+						request.setAttribute("prix2", prix2);
+						prixTot2 = prix2 * Double.parseDouble(quantite2);
+						request.setAttribute("prixTot2", prixTot2);
+						id_produit2 = produitListe.get(i).getId();
+					}
+				}
+				for(int i = 0; i < reductionListe.size(); i++)
+				{
+					if(reductionListe.get(i).getProduit().getId() == id_produit2)
+					{
+						if(reductionListe.get(i).getMin() <= Integer.parseInt(quantite2) && Integer.parseInt(quantite2) <= reductionListe.get(i).getMax())
+						{
+							reducProduit2 = reductionListe.get(i).getReduc();
+							request.setAttribute("reducProduit2", reducProduit2);
+							prixReduc2 = prixTot2 - reducProduit2 * prixTot2;
+							request.setAttribute("prixReduc2", prixReduc2);
+						}else
+						{
+							request.setAttribute("reducProduit2", reducProduit2);
+							prixReduc2 = prixTot2;
+							request.setAttribute("prixReduc2", prixReduc2);
+						}
+					}else
+					{
+						request.setAttribute("reducProduit2", reducProduit2);
+						prixReduc2 = prixTot2;
+						request.setAttribute("prixReduc2", prixReduc2);
+					}
+				}
+			}
+			if(request.getParameter("quantite3") != "")
+			{
+				String quantite3 = request.getParameter("quantite3");
+				String designation3 = request.getParameter("designation3");
+				double prixTot3 = 0;
+				double prix3 = 0;
+				int id_produit3 = 0;
+				double reducProduit3 = 0;
+				double prixReduc3 = 0;
+				for(int i = 0; i < produitListe.size(); i++)
+				{
+					if(produitListe.get(i).getDesignation().equals(designation3))
+					{
+						prix3 = produitListe.get(i).getPrix();
+						request.setAttribute("prix3", prix3);
+						prixTot3 = prix3 * Double.parseDouble(quantite3);
+						request.setAttribute("prixTot3", prixTot3);
+						id_produit3 = produitListe.get(i).getId();
+					}
+				}
+				for(int i = 0; i < reductionListe.size(); i++)
+				{
+					if(reductionListe.get(i).getProduit().getId() == id_produit3)
+					{
+						if(reductionListe.get(i).getMin() <= Integer.parseInt(quantite3) && Integer.parseInt(quantite3) <= reductionListe.get(i).getMax())
+						{
+							reducProduit3 = reductionListe.get(i).getReduc();
+							request.setAttribute("reducProduit3", reducProduit3);
+							prixReduc3 = prixTot3 - reducProduit3 * prixTot3;
+							request.setAttribute("prixReduc3", prixReduc3);
+						}else
+						{
+							request.setAttribute("reducProduit3", reducProduit3);
+							prixReduc3 = prixTot3;
+							request.setAttribute("prixReduc3", prixReduc3);
+						}
+					}else
+					{
+						request.setAttribute("reducProduit3", reducProduit3);
+						prixReduc3 = prixTot3;
+						request.setAttribute("prixReduc3", prixReduc3);
+					}
+				}
+			}
+		}
 		
 		request.getRequestDispatcher("/enregistrerVenteVue.jsp").forward(request, response);
 	}
