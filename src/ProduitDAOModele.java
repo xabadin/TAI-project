@@ -103,7 +103,7 @@ public class ProduitDAOModele {
 		
 		try
 		{
-			String requete = new String("SELECT id, designatio, prix FROM commande WHERE id = ?;");
+			String requete = new String("SELECT id, designation, prix FROM produit WHERE id = ?;");
 			PreparedStatement statement = connexion.prepareStatement(requete);
 
 			statement.setInt(1, id);

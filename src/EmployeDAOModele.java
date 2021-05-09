@@ -21,12 +21,12 @@ public class EmployeDAOModele {
 			Statement statement = connexion.createStatement();
 			ResultSet rs = statement.executeQuery(requete);
 
-			EmployeBeanModele employe = new EmployeBeanModele();
+			
 			ServiceDAOModele serviceDAOModele = new ServiceDAOModele();
 			
 			while ( rs.next() )
 			{
-				
+				EmployeBeanModele employe = new EmployeBeanModele();
 				employe.setId(rs.getInt("id"));
 				employe.setNom_utilisateur(rs.getString("nom_utilisateur"));
 				employe.setMdp(rs.getString("mdp"));

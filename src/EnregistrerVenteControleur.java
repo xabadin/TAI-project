@@ -61,24 +61,39 @@ public class EnregistrerVenteControleur extends HttpServlet {
 		ReductionDAOModele reductionDAOModele = new ReductionDAOModele();
 		List<ReductionBeanModele> reductionListe = reductionDAOModele.lireListe();
 		
+		EmployeDAOModele employeDAOModele = new EmployeDAOModele();
+		List<EmployeBeanModele> employeListe = employeDAOModele.lireListe();
+		
 		String numCommande = Integer.toString(commandeListe.size() + 1);
 		
 		request.setAttribute("produitListe", produitListe);
 		request.setAttribute("numCommande", numCommande);
 		request.setAttribute("clientListe", clientListe);
+		request.setAttribute("employeListe", employeListe);
 		
-		String nom = request.getParameter("nom");
+		String client = request.getParameter("client");
 		
 		double reducClient = 0;
+		int id_client = 0;
+		int id_employe = 0;
 		
 		for(int i = 0; i < clientListe.size(); i++)
 		{
-			if(clientListe.get(i).getNom().equals(nom))
+			if(clientListe.get(i).getNom().equals(client))
 			{
 				reducClient = clientListe.get(i).getReduc();
+				id_client = clientListe.get(i).getId();
 			}
 		}
 
+		for(int i = 0; i < employeListe.size(); i++)
+		{
+			/*if(employeListe.get(i).getNom_utilisateur(nom_utilisateur)
+			{
+				id_employe = employeListe.get(i).getId();
+			}*/
+		}
+		
 		if(request.getParameter("quantite1") == "")
 		{
 			String validation = "Veuillez remplir la première ligne de la colonne quantité.";
@@ -92,6 +107,39 @@ public class EnregistrerVenteControleur extends HttpServlet {
 			int id_produit = 0;
 			double reducProduit1 = 0;
 			double prixReduc1 = 0;
+			
+			String quantite2 = request.getParameter("quantite2");
+			String designation2 = request.getParameter("designation2");
+			double prixTot2 = 0;
+			double prix2 = 0;
+			int id_produit2 = 0;
+			double reducProduit2 = 0;
+			double prixReduc2 = 0;
+			
+			String quantite3 = request.getParameter("quantite3");
+			String designation3 = request.getParameter("designation3");
+			double prixTot3 = 0;
+			double prix3 = 0;
+			int id_produit3 = 0;
+			double reducProduit3 = 0;
+			double prixReduc3 = 0;
+			
+			String quantite4 = request.getParameter("quantite4");
+			String designation4 = request.getParameter("designation4");
+			double prixTot4 = 0;
+			double prix4 = 0;
+			int id_produit4 = 0;
+			double reducProduit4 = 0;
+			double prixReduc4 = 0;
+			
+			String quantite5 = request.getParameter("quantite5");
+			String designation5 = request.getParameter("designation5");
+			double prixTot5 = 0;
+			double prix5 = 0;
+			int id_produit5 = 0;
+			double reducProduit5 = 0;
+			double prixReduc5 = 0;
+			
 			for(int i = 0; i < produitListe.size(); i++)
 			{
 				if(produitListe.get(i).getDesignation().equals(designation1))
@@ -119,8 +167,7 @@ public class EnregistrerVenteControleur extends HttpServlet {
 						prixReduc1 = prixTot1;
 						request.setAttribute("prixReduc1", prixReduc1);
 					}
-				}else
-				{
+				}else{
 					request.setAttribute("reducProduit1", reducProduit1);
 					prixReduc1 = prixTot1;
 					request.setAttribute("prixReduc1", prixReduc1);
@@ -129,13 +176,7 @@ public class EnregistrerVenteControleur extends HttpServlet {
 			
 			if(request.getParameter("quantite2") != "")
 			{
-				String quantite2 = request.getParameter("quantite2");
-				String designation2 = request.getParameter("designation2");
-				double prixTot2 = 0;
-				double prix2 = 0;
-				int id_produit2 = 0;
-				double reducProduit2 = 0;
-				double prixReduc2 = 0;
+				
 				for(int i = 0; i < produitListe.size(); i++)
 				{
 					if(produitListe.get(i).getDesignation().equals(designation2))
@@ -173,13 +214,7 @@ public class EnregistrerVenteControleur extends HttpServlet {
 			}
 			if(request.getParameter("quantite3") != "")
 			{
-				String quantite3 = request.getParameter("quantite3");
-				String designation3 = request.getParameter("designation3");
-				double prixTot3 = 0;
-				double prix3 = 0;
-				int id_produit3 = 0;
-				double reducProduit3 = 0;
-				double prixReduc3 = 0;
+				
 				for(int i = 0; i < produitListe.size(); i++)
 				{
 					if(produitListe.get(i).getDesignation().equals(designation3))
@@ -215,7 +250,98 @@ public class EnregistrerVenteControleur extends HttpServlet {
 					}
 				}
 			}
+			
+			if(request.getParameter("quantite4") != "")
+			{
+				
+				for(int i = 0; i < produitListe.size(); i++)
+				{
+					if(produitListe.get(i).getDesignation().equals(designation4))
+					{
+						prix4 = produitListe.get(i).getPrix();
+						request.setAttribute("prix4", prix4);
+						prixTot4 = prix4 * Double.parseDouble(quantite4);
+						request.setAttribute("prixTot4", prixTot4);
+						id_produit4 = produitListe.get(i).getId();
+					}
+				}
+				for(int i = 0; i < reductionListe.size(); i++)
+				{
+					if(reductionListe.get(i).getProduit().getId() == id_produit4)
+					{
+						if(reductionListe.get(i).getMin() <= Integer.parseInt(quantite4) && Integer.parseInt(quantite4) <= reductionListe.get(i).getMax())
+						{
+							reducProduit4 = reductionListe.get(i).getReduc();
+							request.setAttribute("reducProduit4", reducProduit4);
+							prixReduc4 = prixTot4 - reducProduit4 * prixTot4;
+							request.setAttribute("prixReduc4", prixReduc4);
+						}else
+						{
+							request.setAttribute("reducProduit4", reducProduit4);
+							prixReduc4 = prixTot4;
+							request.setAttribute("prixReduc4", prixReduc4);
+						}
+					}else
+					{
+						request.setAttribute("reducProduit4", reducProduit4);
+						prixReduc4 = prixTot4;
+						request.setAttribute("prixReduc4", prixReduc4);
+					}
+				}
+			}
+			
+			if(request.getParameter("quantite5") != "")
+			{
+				
+				for(int i = 0; i < produitListe.size(); i++)
+				{
+					if(produitListe.get(i).getDesignation().equals(designation5))
+					{
+						prix5 = produitListe.get(i).getPrix();
+						request.setAttribute("prix5", prix5);
+						prixTot5 = prix5 * Double.parseDouble(quantite5);
+						request.setAttribute("prixTot5", prixTot5);
+						id_produit5 = produitListe.get(i).getId();
+					}
+				}
+				for(int i = 0; i < reductionListe.size(); i++)
+				{
+					if(reductionListe.get(i).getProduit().getId() == id_produit5)
+					{
+						if(reductionListe.get(i).getMin() <= Integer.parseInt(quantite5) && Integer.parseInt(quantite5) <= reductionListe.get(i).getMax())
+						{
+							reducProduit5 = reductionListe.get(i).getReduc();
+							request.setAttribute("reducProduit5", reducProduit5);
+							prixReduc5 = prixTot5 - reducProduit5 * prixTot5;
+							request.setAttribute("prixReduc5", prixReduc5);
+						}else
+						{
+							request.setAttribute("reducProduit5", reducProduit5);
+							prixReduc5 = prixTot5;
+							request.setAttribute("prixReduc5", prixReduc5);
+						}
+					}else
+					{
+						request.setAttribute("reducProduit5", reducProduit5);
+						prixReduc5 = prixTot5;
+						request.setAttribute("prixReduc5", prixReduc5);
+					}
+				}
+			}
+			
+			double prixTotalSansRemise = prixReduc1 + prixReduc2 + prixReduc3 + prixReduc4 + prixReduc5;
+			request.setAttribute("prixCommande", prixTotalSansRemise);
+			double prixTotal = prixTotalSansRemise - prixTotalSansRemise * reducClient;
+			request.setAttribute("prixCommandeReduc", prixTotal);
+			
+			
+			
+			
+			
 		}
+		
+		
+		
 		
 		request.getRequestDispatcher("/enregistrerVenteVue.jsp").forward(request, response);
 	}

@@ -62,7 +62,7 @@ public class ReductionDAOModele {
 
 		try
 		{
-			String requete = new String("SELECT id, id_client, prix_total, prix_reduction, id_employe FROM commande;");
+			String requete = new String("SELECT id, id_produit, min, max, reduc FROM reduction;");
 			Statement statement = connexion.createStatement();
 			ResultSet rs = statement.executeQuery(requete);
 

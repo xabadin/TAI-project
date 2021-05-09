@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,16 +18,18 @@
 <title>Login</title>
 </head>
 <body>
-	<form action="">
+	<form action="LoginControleur" method="post">
 		<fieldset>
 			<legend>Login</legend>
-			<label for="email">E-Mail</label>
-			<input type="text" name="email">
-			<label for="motdepasse">Mot de Passe</label>
-			<input type="text" name="motdepasse">
+			<label for="nom_utilisateur">Identifiant</label>
+			<input type="text" name="identifiant">
+			<label for="mdp">Mot de Passe</label>
+			<input type="text" name="mdp">
 		</fieldset>
+		<input type="submit" value="Connexion"/> <br />
+		<c:out value="${validation}" /> <br>
 	</form>
-	<button onclick="window.location.href = 'https://fr.w3docs.com/';">Connexion</button> <br />
+	
 	
 	<a href="RechercheArticleControleur">Montrer les données d'un produit</a> <br />
 	<a href="EnregistrerClientControleur">Créer un new client</a> <br />

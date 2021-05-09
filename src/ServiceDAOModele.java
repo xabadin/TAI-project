@@ -54,7 +54,7 @@ public class ServiceDAOModele {
 		ServiceBeanModele service = new ServiceBeanModele();
 		try
 		{
-			String requete = new String("SELECT id, nom FROM client WHERE id = ?;");
+			String requete = new String("SELECT id, nom FROM service WHERE id = ?;");
 			PreparedStatement statement = connexion.prepareStatement(requete);
 
 			statement.setInt(1, id);
