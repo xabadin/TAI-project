@@ -17,7 +17,7 @@ public class CommandeDAOModele {
 		try
 		{
 
-			String requete = new String("INSERT INTO produit (nom, prix, id_categorie) VALUES (?,?,?);");
+			String requete = new String("INSERT INTO commande (id_client, prix_total, prix_reduction, id_employe) VALUES (?,?,?,?);");
 			PreparedStatement statement = connexion.prepareStatement(requete,
 					Statement.RETURN_GENERATED_KEYS);
 			

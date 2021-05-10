@@ -359,7 +359,7 @@ public class EnregistrerVenteControleur extends HttpServlet {
 		    commande.setPrix_reduction((int)prixTotal);
 		    commande.setPrix_total((int)prixTotalSansRemise);
 		       
-			
+			System.out.println("arnaud connard");
 			commandeDAOModele.creer(commande);
 		}
 		
