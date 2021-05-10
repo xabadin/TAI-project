@@ -6,9 +6,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Enregistrer une nouvelle vente</title>
+<style>
+    p { 
+	font-size: 200%;
+	text-align: left;
+	margin-top: 10px;
+	font-family: Calibri, Helvetica, sans-serif
+	 }
+	 th {	font-size: 100%;
+	font-family: Calibri, Helvetica, sans-serif
+	}
+	fieldset {	font-size: 100%;
+	font-family: Calibri, Helvetica, sans-serif
+	}
+	a{font-family: Calibri, Helvetica, sans-serif;
+	padding: 0 5px;
+	}
+  </style>
 </head>
 <body>
-	<h1>Renseigner une nouvelle commande</h1>
+	<fieldset>
+	<a href="RechercheArticleControleur">Montrer les données d'un produit</a>	
+	<a href="EnregistrerClientControleur">Créer un new client</a>
+	<a href="EnregistrerReductionControleur">Créer une nouvelle reduction</a>
+	<a href="EnregistrerVenteControleur">Créer une nouvelle commande</a> <br />
+	</fieldset>
+	
+	<p>Renseigner une nouvelle commande</p>
 	
 	<form action="EnregistrerVenteControleur" method="post">
 		<fieldset>
