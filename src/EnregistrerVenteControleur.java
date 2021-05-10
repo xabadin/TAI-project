@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class EnregistrerVenteControleur
@@ -53,6 +54,7 @@ public class EnregistrerVenteControleur extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		ProduitDAOModele produitDAOModele = new ProduitDAOModele();
+		ProduitBeanModele produit = new ProduitBeanModele();
 		List<ProduitBeanModele> produitListe = produitDAOModele.lireListe();
 		
 		ClientDAOModele clientDAOModele = new ClientDAOModele();
@@ -89,13 +91,7 @@ public class EnregistrerVenteControleur extends HttpServlet {
 			}
 		}
 
-		for(int i = 0; i < employeListe.size(); i++)
-		{
-			/*if(employeListe.get(i).getNom_utilisateur(nom_utilisateur)
-			{
-				id_employe = employeListe.get(i).getId();
-			}*/
-		}
+		
 		
 		if(request.getParameter("quantite1") == "")
 		{
@@ -181,9 +177,13 @@ public class EnregistrerVenteControleur extends HttpServlet {
 			}
 			
 			commande.setId(commandeListe.size() + 1);
-			jointure1.setCommande();
-			jointure1.setProduit();
+			jointure1.setCommande(commande);
+			produit.setId(id_produit);
+			jointure1.setProduit(produit);
 			jointure1.setQuantite_produit(Integer.parseInt(quantite1));
+			
+			//créer une fonction créer dans JointureDAO
+			
 			if(request.getParameter("quantite2") != "")
 			{
 				
@@ -344,10 +344,23 @@ public class EnregistrerVenteControleur extends HttpServlet {
 			double prixTotal = prixTotalSansRemise - prixTotalSansRemise * reducClient;
 			request.setAttribute("prixCommandeReduc", prixTotal);
 			
+		    HttpSession session = request.getSession();
+		    
+		    id_employe = ( int ) session.getAttribute( "id_employe" );        
+		    
+		    ClientBeanModele client1 = new ClientBeanModele();
+		    EmployeBeanModele employe1 = new EmployeBeanModele();
+		    
+		    client1.setId(id_client);
+		    employe1.setId(id_employe);
+		    
+		    commande.setClient(client1);
+		    commande.setEmploye(employe1);
+		    commande.setPrix_reduction((int)prixTotal);
+		    commande.setPrix_total((int)prixTotalSansRemise);
+		       
 			
-			
-			
-			
+			commandeDAOModele.creer(commande);
 		}
 		
 		
