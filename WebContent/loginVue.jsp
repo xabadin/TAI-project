@@ -24,7 +24,7 @@
 			<label for="nom_utilisateur">Identifiant</label>
 			<input type="text" name="identifiant">
 			<label for="mdp">Mot de Passe</label>
-			<input type="text" name="mdp">
+			<input type="password" name="mdp">
 		</fieldset>
 		<input type="submit" value="Connexion"/> <br />
 		<c:out value="${validation}" /> <br>

@@ -46,6 +46,9 @@ public class EnregistrerVenteControleur extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	/* (non-Javadoc)
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -140,6 +143,9 @@ public class EnregistrerVenteControleur extends HttpServlet {
 			double reducProduit5 = 0;
 			double prixReduc5 = 0;
 			
+			CommandeBeanModele commande = new CommandeBeanModele();
+			JointureBeanModele jointure1 = new JointureBeanModele();
+			
 			for(int i = 0; i < produitListe.size(); i++)
 			{
 				if(produitListe.get(i).getDesignation().equals(designation1))
@@ -174,6 +180,10 @@ public class EnregistrerVenteControleur extends HttpServlet {
 				}
 			}
 			
+			commande.setId(commandeListe.size() + 1);
+			jointure1.setCommande();
+			jointure1.setProduit();
+			jointure1.setQuantite_produit(Integer.parseInt(quantite1));
 			if(request.getParameter("quantite2") != "")
 			{
 				
