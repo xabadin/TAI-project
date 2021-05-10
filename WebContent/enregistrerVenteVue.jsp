@@ -19,9 +19,19 @@
 	fieldset {	font-size: 100%;
 	font-family: Calibri, Helvetica, sans-serif
 	}
+	a{font-family: Calibri, Helvetica, sans-serif;
+	padding: 0 5px;
+	}
   </style>
 </head>
 <body>
+	<fieldset>
+	<a href="RechercheArticleControleur">Montrer les données d'un produit</a>	
+	<a href="EnregistrerClientControleur">Créer un new client</a>
+	<a href="EnregistrerReductionControleur">Créer une nouvelle reduction</a>
+	<a href="EnregistrerVenteControleur">Créer une nouvelle commande</a> <br />
+	</fieldset>
+	
 	<p>Renseigner une nouvelle commande</p>
 	
 	<form action="EnregistrerVenteControleur" method="post">

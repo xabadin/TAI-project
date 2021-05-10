@@ -17,11 +17,20 @@
 	fieldset {	font-size: 100%;
 	font-family: Calibri, Helvetica, sans-serif
 	}
+	a{font-family: Calibri, Helvetica, sans-serif;
+	padding: 0 5px;
+	}
   </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Enregistrer une reduction</title>
 </head>
 <body>
+<fieldset>
+	<a href="RechercheArticleControleur">Montrer les données d'un produit</a>	
+	<a href="EnregistrerClientControleur">Créer un new client</a>
+	<a href="EnregistrerReductionControleur">Créer une nouvelle reduction</a>
+	<a href="EnregistrerVenteControleur">Créer une nouvelle commande</a> <br />
+	</fieldset>
 	<p>Définir une réduction en fonction de la quantité</p>
 	
 	<form action="EnregistrerReductionControleur" method="post">
