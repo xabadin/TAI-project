@@ -12,11 +12,15 @@
 		background-color: #e7e7e7;
 		color: black;
 	}
+	fieldset {	font-size: 100%;
+	font-family: Calibri, Helvetica, sans-serif
+	}
 	</style>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
 <body>
+<img src="image/logo.jpg" alt="logo"/>
 	<form action="">
 		<fieldset>
 			<legend>Login</legend>
