@@ -8,6 +8,15 @@
 	a{font-family: Calibri, Helvetica, sans-serif;
 	padding: 0 5px;
 	}
+	fieldset{ font-size: 100%;
+	font-family: Calibri, Helvetica, sans-serif
+	}
+	p{
+	font-size: 200%;
+	text-align: left;
+	margin-top: 10px;
+	font-family: Calibri, Helvetica, sans-serif
+	}
   </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Recherche sur un article</title>
@@ -19,7 +28,7 @@
 	<a href="EnregistrerReductionControleur">Créer une nouvelle reduction</a>
 	<a href="EnregistrerVenteControleur">Créer une nouvelle commande</a> <br />
 	</fieldset>
-	<h1>Recherche sur un article</h1>
+	<p>Recherche sur un article</p>
 	
 	<form action="RechercheArticleControleur" method="post">
 		<fieldset>

@@ -13,11 +13,19 @@
 		background-color: #e7e7e7;
 		color: black;
 	}
+	div {
+		margin-top:150px;
+		margin-bottom:50px;
+  		text-align: center;
+	}
 	</style>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
 <body>
+	<div>
+		<img src="image/logo.jpg">
+	</div>
 	<form action="LoginControleur" method="post">
 		<fieldset>
 			<legend>Login</legend>
